@@ -1,0 +1,6 @@
+node_modules
+dist
+public
+AGENTS.md
+best.tflite
+test-results

@@ -1,0 +1,59 @@
+.product-pair {
+  position: relative;
+  width: min(100%, 420px);
+  height: 100%;
+  min-height: 190px;
+  margin-inline: auto;
+  isolation: isolate;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 35% -15% -8%;
+    background: radial-gradient(ellipse, #d7002055, transparent 67%);
+  }
+  img {
+    position: absolute;
+    bottom: 7%;
+    height: 87%;
+    width: auto;
+    max-width: 50%;
+    object-fit: contain;
+    filter: drop-shadow(0 16px 13px #000b);
+  }
+  &__original {
+    left: 50%;
+    transform: translateX(-110%) rotate(-9deg);
+    z-index: 1;
+  }
+  &__zero {
+    left: 50%;
+    transform: translateX(10%) rotate(9deg);
+  }
+  &--hug {
+    padding-top: 50px;
+    img {
+      height: 73%;
+      bottom: 4%;
+    }
+    .product-pair__original {
+      transform: translateX(-100%) rotate(14deg);
+    }
+    .product-pair__zero {
+      transform: rotate(-14deg);
+    }
+  }
+  &__heart {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    filter: drop-shadow(0 0 6px #ff1539) drop-shadow(0 0 20px #ff1539);
+    .icon {
+      width: 58px;
+      height: 58px;
+      stroke-width: 1.3;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "cocapair",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/prepare-assets.mjs && vite --host 0.0.0.0",
+    "build": "npm run prepare:assets && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "prepare:assets": "node scripts/prepare-assets.mjs",
+    "postinstall": "npm run prepare:assets",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.0",
+    "@litertjs/core": "latest",
+    "lucide-react": "^1.69.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "esbuild": "^0.25.0",
+    "jsqr": "^1.4.0",
+    "prettier": "^3.6.0",
+    "sass": "^1.93.0",
+    "sharp": "^0.35.5",
+    "vite": "^6.4.0",
+    "vite-plugin-mkcert": "^1.17.12",
+    "vitest": "^5.0.3"
+  }
+}

@@ -1,0 +1,113 @@
+.landing {
+  min-height: 100svh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  isolation: isolate;
+  padding: max(12px, env(safe-area-inset-top))
+    max(24px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom))
+    max(24px, env(safe-area-inset-left));
+  background:
+    radial-gradient(ellipse at 75% 55%, #6a001c55, transparent 65%), #0b0506;
+  overflow: hidden;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 55% -40% -20%;
+    background:
+      linear-gradient(#0b0506, #0b050644),
+      url('/assets/artwork/red-condensation.webp') center / cover;
+    opacity: 0.36;
+    transform: rotate(-15deg);
+    mask-image: linear-gradient(transparent, #000);
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    img {
+      width: 142px;
+      height: auto;
+    }
+  }
+  &__intro {
+    text-align: center;
+    animation: enter 0.7s ease-out both;
+    h1 {
+      margin: 12px -8px 14px;
+      font-size: clamp(30px, 8.6vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+    }
+    h1 span {
+      color: #ff4159;
+    }
+    > p:last-child {
+      color: #cebfc2;
+      font-size: 14px;
+      line-height: 1.65;
+      margin: 0;
+    }
+  }
+  &__art {
+    flex: 1;
+    min-height: 240px;
+    height: 32dvh;
+    max-height: 380px;
+    margin: 18px -5px 6px;
+    animation: enter 1s 0.12s ease-out both;
+  }
+  &__actions {
+    position: relative;
+    display: grid;
+    gap: 10px;
+    margin-top: auto;
+  }
+  &__classes {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    color: #e0ced1;
+    font-size: 11px;
+    margin: 8px 0 12px;
+    span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ff2444;
+      box-shadow: 0 0 12px #f03;
+    }
+  }
+  &__privacy {
+    text-align: center;
+    color: #ac979c;
+    font-size: 10px;
+    margin: 5px 0 0;
+  }
+}
+@media (max-height: 720px) {
+  .landing {
+    &__header {
+      margin-bottom: 14px;
+    }
+    &__art {
+      min-height: 190px;
+      margin-top: 10px;
+    }
+    &__intro h1 {
+      font-size: 32px;
+    }
+  }
+}
+@media (min-width: 600px) {
+  .landing {
+    padding-inline: max(32px, calc((100% - 440px) / 2));
+    &__intro h1 {
+      font-size: 46px;
+    }
+  }
+}

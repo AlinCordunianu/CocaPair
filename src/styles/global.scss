@@ -1,0 +1,130 @@
+@use 'tokens' as t;
+
+* {
+  box-sizing: border-box;
+}
+:root {
+  color-scheme: dark;
+  font-synthesis: none;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  background: t.$night;
+  color: t.$white;
+  font-family: Inter, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+:focus-visible {
+  outline: 3px solid #ff6883;
+  outline-offset: 4px;
+}
+.icon {
+  stroke-width: 1.7;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+.icon-button {
+  display: inline-grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: 50%;
+}
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid #ff3c56;
+  border-radius: 100px;
+  background: linear-gradient(135deg, #ff082d, #d90026);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  min-height: 52px;
+  padding: 13px 20px;
+  width: 100%;
+  box-shadow: 0 6px 26px #c0002528;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+  .icon {
+    width: 19px;
+    height: 19px;
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+  &--secondary {
+    background: #ffffff0c;
+    border-color: #ffffff16;
+    color: inherit;
+    box-shadow: none;
+  }
+}
+.eyebrow {
+  color: #d9a5af;
+  text-transform: uppercase;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  margin: 0;
+  line-height: 1.6;
+}
+.app {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  background: #0b0506;
+}
+.app-loading {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  color: #d9a5af;
+}
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (hover: hover) {
+  .button:hover {
+    background: #fa173d;
+  }
+  .button--secondary:hover {
+    background: #ffffff18;
+  }
+  .icon-button:hover {
+    background: #ffffff12;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

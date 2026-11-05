@@ -1,0 +1,155 @@
+@use '../../styles/tokens' as t;
+
+.modal {
+  color-scheme: light;
+  position: fixed;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  padding: 46px 24px 24px;
+  border: 1px solid #fff9;
+  border-radius: 24px;
+  background: t.$cream;
+  color: t.$ink;
+  text-align: center;
+  overflow: auto;
+  max-height: calc(
+    100dvh - max(32px, env(safe-area-inset-top)) - env(safe-area-inset-bottom)
+  );
+  box-shadow: 0 24px 100px #0008;
+  animation: enter 0.3s ease-out;
+  &::backdrop {
+    background: #090003b3;
+    backdrop-filter: blur(7px);
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.7px;
+    margin: 20px 0 16px;
+  }
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    .icon {
+      width: 20px;
+    }
+  }
+  &__icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #ff12351a;
+    color: #ef0d34;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    .icon {
+      width: 28px;
+      height: 28px;
+    }
+  }
+  &__body {
+    color: #6c515a;
+    font-size: 13px;
+    line-height: 1.75;
+    margin: 0 0 26px;
+  }
+  &__actions {
+    display: grid;
+    gap: 10px;
+  }
+  .button--secondary {
+    border-color: #36101b18;
+    background: #36101b08;
+  }
+  &--instructions {
+    padding-top: 36px;
+    h2 {
+      margin: 0 0 32px;
+    }
+  }
+  &--celebration {
+    color-scheme: dark;
+    width: 100%;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    inset: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    padding: max(54px, env(safe-area-inset-top))
+      max(24px, calc((100vw - 390px) / 2))
+      max(24px, env(safe-area-inset-bottom));
+    background:
+      radial-gradient(ellipse at 50% 35%, #77091b88, transparent 65%), #0b0506;
+    color: #fff8f9;
+    h2 {
+      font-size: clamp(28px, 8vw, 36px);
+      margin-top: 24px;
+    }
+    .modal__body {
+      color: #d3bfc5;
+      max-width: 270px;
+      margin-inline: auto;
+    }
+    .modal__close {
+      top: max(10px, env(safe-area-inset-top));
+      right: max(10px, env(safe-area-inset-right));
+    }
+    .button--secondary {
+      background: #ffffff08;
+      border-color: #ffffff18;
+    }
+  }
+  &__artwork {
+    height: clamp(240px, 43dvh, 440px);
+    margin-inline: -8px;
+    animation: enter 0.8s ease-out;
+  }
+}
+.instructions {
+  padding: 0;
+  margin: 0 0 32px;
+  list-style: none;
+  text-align: left;
+  display: grid;
+  gap: 28px;
+  li {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+  &__number {
+    width: 48px;
+    height: 48px;
+    background: #ff123514;
+    color: #ef0d34;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+  }
+  h3 {
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+  p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #6c515a;
+    margin: 0;
+  }
+}
+.loading-dot {
+  display: inline-block;
+  animation: pulse 1s ease-in-out infinite alternate;
+}
+@keyframes pulse {
+  to {
+    opacity: 0.3;
+  }
+}

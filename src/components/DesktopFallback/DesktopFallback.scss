@@ -1,0 +1,172 @@
+.desktop {
+  min-height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 88% 45%, #79021c70, transparent 65%), #0b0506;
+  padding: 28px clamp(32px, 7vw, 130px);
+  display: flex;
+  flex-direction: column;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: auto -10% -20% 30%;
+    height: 50%;
+    background: url('/assets/artwork/red-light-wave.webp') center / cover;
+    opacity: 0.3;
+    transform: rotate(-15deg);
+    z-index: -1;
+    mask-image: linear-gradient(transparent, #000);
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    img {
+      width: 180px;
+      height: auto;
+    }
+    span {
+      color: #c4a9b0;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+    }
+  }
+  &__experience {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding-block: 60px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 30px;
+  }
+  &__copy {
+    position: relative;
+    z-index: 1;
+    h1 {
+      font-size: clamp(34px, 3.9vw, 62px);
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+      margin: 20px 0 24px;
+    }
+    h1 span {
+      color: #ff425d;
+    }
+    > p:not(.eyebrow) {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #d2bbc1;
+    }
+  }
+  &__handoff {
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    h2 {
+      font-size: 19px;
+      line-height: 1.4;
+      margin: 8px 0;
+    }
+    p {
+      font-size: 12px;
+      line-height: 1.6;
+      color: #c4a9b0;
+    }
+    > div > .icon {
+      color: #ff425d;
+    }
+    a {
+      color: #fff;
+      font-size: 12px;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      text-underline-offset: 5px;
+      .icon {
+        width: 16px;
+      }
+    }
+  }
+  &__qr {
+    flex: 0 0 184px;
+    width: 184px;
+    height: 184px;
+    border-radius: 16px;
+    background: #fff;
+    border: 1px solid #fff;
+    box-shadow:
+      0 0 0 7px #ff24441c,
+      0 0 40px #d400232b;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    span {
+      color: #300;
+      font-size: 12px;
+    }
+  }
+  &__art {
+    height: 490px;
+    position: relative;
+    .product-pair {
+      max-width: 520px;
+    }
+  }
+  &__art-caption {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #dbb1bb;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+  &__footer {
+    border-top: 1px solid #ffffff14;
+    padding-top: 22px;
+    color: #b89ca4;
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+@media (max-width: 900px) {
+  .desktop {
+    padding-inline: 28px;
+    &__experience {
+      grid-template-columns: 1fr;
+      padding-block: 32px;
+    }
+    &__art {
+      height: 340px;
+      width: 320px;
+      max-width: 100%;
+      margin: 10px auto 32px;
+    }
+    &__copy {
+      text-align: center;
+      h1 {
+        font-size: 36px;
+      }
+    }
+    &__handoff {
+      justify-content: center;
+      text-align: left;
+    }
+    &__header span {
+      display: none;
+    }
+    &__footer {
+      flex-wrap: wrap;
+    }
+  }
+}
